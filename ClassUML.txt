@@ -1,0 +1,6 @@
+[note: Generated from yUML.me{bg:orange}]
+[User | -name:String;-UID:Integer | +Signup():void;+LogIn():void;+LogOut():void;+GenerateUID():void;+toString():String;]
+[User ]^-[GM or Admin | ; | +ManageLogistics():void; +AddStaff():void; +RemoveStaff():void; +ViewStaff():void; +AssignTasks():void; +toString():String;]
+[User ]^-[DeptSupervisor | Department:String; | +ManageDeptLogistics():void; +AddStaff():void; +RemoveStaff():void; +ViewStaff():void; +AssignTasks():void; +SendLeave():void; +SendRequests():void; +ViewReports():void; +toString():String;]
+[UserDoesntExistException | -Username:String | +toString():String;]
+[NotLoggedInException | -Username:String | +toString():String;]
