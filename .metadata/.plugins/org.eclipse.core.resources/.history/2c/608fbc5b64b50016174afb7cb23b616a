@@ -1,0 +1,59 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.*;
+import javax.swing.*;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *
+ */
+public class LoginScreen
+{
+	JFrame frame;
+	JPanel panel;
+	JLabel title, subtitle;
+	JButton login;
+	JInputField a;
+	
+	LoginScreen()
+	{ 
+		frame = new JFrame("Login");
+		panel = new JPanel();
+		title = new JLabel("Login Screen");
+		subtitle = new JLabel("Enter details");
+		login = new JButton("Login");
+		init_login();
+		
+		panel.setLayout(null);
+		title.setBounds(175, 150, 550, 50);
+		title.setFont(new Font("Arial", Font.BOLD, 30));
+		subtitle.setBounds(285, 200, 375, 50);
+		subtitle.setFont(new Font("Arial", Font.ITALIC, 20));
+		login.setBounds(300, 300, 300, 50);
+		
+		panel.add(title);
+		panel.add(subtitle);
+		panel.add(login);
+		
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(900, 700);
+		frame.setVisible(true);
+	}
+	
+	public void init_login()
+	{
+		login.setPreferredSize(new Dimension(300, 50));
+		login.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				panel.setVisible(false);
+				frame.getContentPane().remove(panel);
+				frame.revalidate();
+			}
+		});
+	}	
+}

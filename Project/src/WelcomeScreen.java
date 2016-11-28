@@ -39,6 +39,7 @@ public class WelcomeScreen
 		panel.add(author);
 		panel.add(login);
 		panel.add(register);
+		
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(900, 700);
@@ -55,6 +56,8 @@ public class WelcomeScreen
 				panel.setVisible(false);
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
+				frame.setVisible(false);
+				Main.initlogin();
 			}
 		});
 	}	
@@ -69,6 +72,8 @@ public class WelcomeScreen
 				panel.setVisible(false);
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
+				frame.setVisible(false);
+				Main.initregister();
 			}
 		});
 	}

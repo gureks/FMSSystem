@@ -9,5 +9,12 @@ public class Main
 	{
 		WelcomeScreen welcome = new WelcomeScreen();
 	}
-
+	public static void initlogin()
+	{
+		LoginScreen login = new LoginScreen();
+	}
+	public static void initregister()
+	{
+		RegisterScreen register = new RegisterScreen();
+	}
 }
