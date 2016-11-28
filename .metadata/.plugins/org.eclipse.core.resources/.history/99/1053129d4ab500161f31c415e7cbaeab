@@ -1,0 +1,19 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *
+ */
+public class WelcomeScreen
+{
+	WelcomeScreen()
+	{
+		JFrame frame = new JFrame("Welcome");
+		JPanel panel = new JPanel();
+		JLabel name = new JLabel("Tic-Tac-Toe");
+		JLabel author = new JLabel("Gurek Singh - 2015033");
+
+	}
+}

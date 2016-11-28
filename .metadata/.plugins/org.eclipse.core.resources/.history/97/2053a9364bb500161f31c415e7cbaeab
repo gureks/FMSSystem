@@ -1,0 +1,44 @@
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *
+ */
+public class WelcomeScreen
+{
+	JFrame frame;
+	JPanel panel;
+	JLabel title, author;
+	JButton login, register;
+	
+	WelcomeScreen()
+	{
+		frame = new JFrame("Welcome");
+		panel = new JPanel();
+		title = new JLabel("Facility Management Services System");
+		author = new JLabel("Gurek Singh & Abhishek Chauhan");
+		login = new JButton("Login");
+		init_login();
+	}
+	
+	public void init_login()
+	{
+		login.setPreferredSize(new Dimension(300, 50));
+		login.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				panel.setVisible(false);
+				frame.getContentPane().remove(panel);
+				frame.revalidate();
+			}
+		});
+	}
+}

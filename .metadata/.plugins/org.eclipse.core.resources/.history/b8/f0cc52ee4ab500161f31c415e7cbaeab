@@ -1,0 +1,35 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *
+ */
+public class WelcomeScreen
+{
+	JFrame frame;
+	JPanel panel;
+	JLabel title, author;
+	JButton login, register;
+	WelcomeScreen()
+	{
+		frame = new JFrame("Welcome");
+		panel = new JPanel();
+		title = new JLabel("Facility Management Services System");
+		author = new JLabel("Gurek Singh & Abhishek Chauhan");
+		login = new JButton("Login");
+		start.setPreferredSize(new Dimension(300, 50));
+		start.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				panel.setVisible(false);
+				frame.getContentPane().remove(panel);
+				frame.revalidate();
+				game();
+			}
+		});
+	}
+}
