@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 import javax.swing.*;
@@ -13,8 +14,9 @@ public class AdminScreen
 {
 	private JFrame frame;
 	private JPanel panel, homePanel, staffPanel, reportsPanel, logisticsPanel, requestsPanel;
-	private JLabel title;
-	private JButton logout, home, staff, reports, logistics, requests;
+	private JLabel title, ladd, ldel, staffText;
+	private JButton logout, home, staff, reports, logistics, requests, submit;
+	private JTextField add, del;
 	
 	AdminScreen()
 	{
@@ -78,9 +80,10 @@ public class AdminScreen
 			public void actionPerformed(ActionEvent e) 
 			{
 				frame.getContentPane().removeAll();
-				frame.add(panel);
+				frame.revalidate();
+				frame.getContentPane().add(panel);
 				initHomePanel();
-				frame.add(homePanel);
+				frame.getContentPane().add(homePanel);
 				frame.revalidate();
 			}
 		});
@@ -93,9 +96,10 @@ public class AdminScreen
 			public void actionPerformed(ActionEvent e) 
 			{
 				frame.getContentPane().removeAll();
-				frame.add(panel);
+				frame.revalidate();
+				frame.getContentPane().add(panel);
 				initStaffPanel();
-				frame.add(staffPanel);
+				frame.getContentPane().add(staffPanel);
 				frame.revalidate();
 			}
 		});
@@ -114,7 +118,7 @@ public class AdminScreen
 	public void initHomePanel()
 	{
 		JLabel homeText = new JLabel("<html>UID: " + Main.LoggedIn.getUID() + "<br />Type: " + Main.LoggedIn.getType() + "<br />Name: " + Main.LoggedIn.getName() + "<br />Username: " + Main.LoggedIn.getUsername() + "<br />Department: " + Main.LoggedIn.getDepartment() + "<br />DOB: " + Main.LoggedIn.getDOB() + "</html>");
-		homeText.setBounds(25, 175, 800, 500);
+		homeText.setBounds(25, 200, 800, 400);
 		homeText.setFont(new Font("Arial", Font.BOLD, 20));
 		homePanel.setLayout(null);
 		homePanel.add(homeText);
@@ -122,10 +126,121 @@ public class AdminScreen
 
 	public void initStaffPanel()
 	{
-		JLabel staffText = new JLabel("Staff Panel hai yeh");
-		staffText.setBounds(25, 175, 800, 500);
-		staffText.setFont(new Font("Arial", Font.BOLD, 20));
-		staffPanel.setLayout(null);
+		staffText = new JLabel("<html>");
+		add = new JTextField("Enter username of request to be added");
+		del = new JTextField("Enter username of request to be deleted");
+		initStaffPanelElements();
+		staffPanel.add(ladd);
+		staffPanel.add(add);		
+		staffPanel.add(ldel);
+		staffPanel.add(del);
 		staffPanel.add(staffText);
+		staffPanel.add(submit);
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader("newusers.csv"));
+			String line = null;
+			while ((line = br.readLine()) != null) {
+		        String[] values = line.split(",");
+		        User temp = new User(Integer.valueOf(values[0]),values[1],values[2],values[3],values[4],values[5],values[6]);
+		        staffText.setText(staffText.getText() + "<br>Name :" + temp.getName() + "&emsp;Username :" + temp.getUsername() + "&emsp;Department :" + temp.getDepartment() + "&emsp;Type :" + temp.getType());
+		    }
+		}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally	{
+			staffText.setText(staffText.getText() + "</html>");
+			if(br!=null){
+				try{
+					br.close();
+				}
+				catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void init_submit()
+	{
+		submit.setPreferredSize(new Dimension(300, 50));
+		submit.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(!add.getText().equals(""))
+				{
+					User addedUser;
+					System.out.println("User to be added " + add.getText());
+					BufferedReader br = null;
+					PrintWriter pw = null, pw1 = null;
+					try {
+						pw = new PrintWriter(new FileOutputStream(new File("newusers1.csv"), true));
+						br = new BufferedReader(new FileReader("newusers.csv"));
+						pw1 = new PrintWriter(new FileOutputStream(new File("users.csv"), true));
+						String line = null;
+						while ((line = br.readLine()) != null) {
+					        String[] values = line.split(",");
+					        User temp = new User(Integer.valueOf(values[0]),values[1],values[2],values[3],values[4],values[5],values[6]);
+					        if(temp.getUsername().equals(add.getText()))
+					        {
+					        	pw1.println(temp.toString());
+					        }
+					        else {
+					        	pw.println(line);
+					        }
+						}
+					}
+					catch(FileNotFoundException e1) {
+						e1.printStackTrace();
+					}
+					catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					finally	{
+						if(br!=null){
+							try{
+								br.close();
+							}
+							catch(IOException e1){
+								e1.printStackTrace();
+							}
+						}
+						pw.close();
+						pw1.close();
+						//File delFile = new File("newusers.csv");
+						//delFile.delete();
+						//File renameFile = new File("newusers1.csv");
+						//renameFile.renameTo(delFile);
+					}
+				}
+				if(!del.getText().equals(""))
+				{
+					System.out.println("User to be removed " + del.getText());
+				}
+			}
+		});
+	}
+	
+	public void initStaffPanelElements()
+	{
+		staffText.setBounds(75, 150, 800, 200);
+		staffText.setFont(new Font("Arial", Font.BOLD, 15));
+		staffPanel.setLayout(null);
+		ladd = new JLabel("Add user:");
+		ladd.setBounds(75, 375, 300, 50);
+		ladd.setFont(new Font("Arial", Font.BOLD, 20));
+		add.setBounds(75, 425, 300, 50);
+		ldel = new JLabel("Delete user:");
+		ldel.setBounds(450, 375, 300, 50);
+		ldel.setFont(new Font("Arial", Font.BOLD, 20));
+		del.setBounds(450, 425, 300, 50);
+		submit = new JButton("Submit");
+		submit.setBounds(300, 500, 300, 50);
+		init_submit();
 	}
 }
