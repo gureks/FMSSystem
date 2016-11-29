@@ -238,8 +238,11 @@ public class AdminScreen
 						while ((line = br.readLine()) != null) {
 					        String[] values = line.split(",");
 					        User temp = new User(Integer.valueOf(values[0]),values[1],values[2],values[3],values[4],values[5],values[6]);
-					        if(!temp.getUsername().equals(del.getText()))
+					        if(temp.getUsername().equals(add.getText()))
 					        {
+					        	pw1.println(temp.toString());
+					        }
+					        else {
 					        	pw.println(line);
 					        }
 						}
@@ -260,6 +263,7 @@ public class AdminScreen
 							}
 						}
 						pw.close();
+						pw1.close();
 						File delFile = new File("newusers.csv");
 						File renameFile = new File("newusers1.csv");
 					    try {
