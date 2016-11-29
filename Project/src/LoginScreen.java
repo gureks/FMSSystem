@@ -13,7 +13,7 @@ public class LoginScreen
 {
 	JFrame frame;
 	JPanel panel;
-	JLabel title, subtitle;
+	JLabel title, subtitle, uname, pass;
 	JButton login;
 	JTextField username, password;
 	
@@ -23,23 +23,34 @@ public class LoginScreen
 		panel = new JPanel();
 		title = new JLabel("Login Screen");
 		subtitle = new JLabel("Enter details");
+		uname = new JLabel("Username ");
+		pass = new JLabel("Password");
 		login = new JButton("Login");
 		init_login();
-		username = new JTextField("Username");
-		password = new JTextField("Password");
+		username = new JTextField("");
+		password = new JTextField("");
 		
 		panel.setLayout(null);
-		title.setBounds(350, 125, 200, 50);
+		title.setBounds(350, 100, 200, 50);
 		title.setFont(new Font("Arial", Font.BOLD, 30));
-		subtitle.setBounds(380, 175, 140, 50);
+		subtitle.setBounds(380, 150, 140, 50);
 		subtitle.setFont(new Font("Arial", Font.BOLD, 20));
+		
+		uname.setBounds(300, 200, 140, 50);
+		uname.setFont(new Font("Arial", Font.BOLD, 20));
 		username.setBounds(300,250,300,50);
-		password.setBounds(300, 300, 300, 50);
-		login.setBounds(300, 350, 300, 50);
+		
+		pass.setBounds(300, 300, 140, 50);
+		pass.setFont(new Font("Arial", Font.BOLD, 20));
+		password.setBounds(300, 350, 300, 50);
+		
+		login.setBounds(300, 425, 300, 50);
 		
 		panel.add(title);
 		panel.add(subtitle);
+		panel.add(uname);
 		panel.add(username);
+		panel.add(pass);
 		panel.add(password);
 		panel.add(login);
 		
