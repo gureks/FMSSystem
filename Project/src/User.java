@@ -54,4 +54,16 @@ public class User
 	{
 		return department;
 	}
+	
+	public String getDOB()
+	{
+		return DOB;
+	}
+	
+	public Integer getUID()
+	{
+		return uid;
+	}
+	
+	
 }
