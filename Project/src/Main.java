@@ -105,16 +105,10 @@ public class Main
 	public static void loginRedirect()
 	{
 		if(LoggedIn.getType().equals("Admin"))
-		{
 			AdminScreen adminscreen = new AdminScreen();
-		}
 		else if(LoggedIn.getType().equals("Supervisor"))
-		{
-			System.out.println("Welcome, supervisor of " + LoggedIn.getDepartment());
-		}
+			SupervisorScreen superscreen = new SupervisorScreen();
 		else
-		{
 			System.out.println("Welcome, staff of " + LoggedIn.getDepartment());
-		}
 	}
 }
