@@ -5,28 +5,48 @@
  */
 public class User 
 {
-	Integer UID;
-	String type, name, username, password, department, DOB;
+	private Integer uid;
+	private String type, name, username, password, department, DOB;
 	
-	User(String type, String name, String username, String password, String department, String DOB)
+	User(Integer uid, String type, String name, String username, String password, String department, String DOB)
 	{
-		UID = Math.abs(this.username.hashCode());
-		type=this.type;
-		name=this.name;
-		username=this.username;
-		password=this.password;
-		department=this.department;
-		DOB=this.DOB;
+		this.uid = uid;
+		this.type = type;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.department = department;
+		this.DOB = DOB;
 	}
 	
 	public String toString()
 	{
-		return UID + "," 
+		return uid + "," 
 			+ type + ","
 			+ name + ","
 			+ username + ","
 			+ password + ","
 			+ department + ","
 			+ DOB;
+	}
+	
+	public String getUsername()
+	{
+		return username;
+	}
+	
+	public String getPassword()
+	{
+		return password;
+	}
+
+	public String getType()
+	{
+		return type;
+	}
+
+	public String getName()
+	{
+		return name;
 	}
 }

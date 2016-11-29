@@ -63,7 +63,8 @@ public class RegisterScreen
 				panel.setVisible(false);
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
-				Main.registerUser((String)type.getSelectedItem(), name.getText(), username.getText(), password.getText(), (String)dept.getSelectedItem(), dob.getText());
+				Integer uid = new Integer(Math.abs(username.hashCode()));
+				Main.registerUser(uid, (String)type.getSelectedItem(), name.getText(), username.getText(), password.getText(), (String)dept.getSelectedItem(), dob.getText());
 				rpanel = new JPanel();
 				JLabel rtitle = new JLabel("You have been regsistered with UID " + Math.abs(username.hashCode()));
 				JLabel rsub	= new JLabel("You'll be registered once accepted by the Admin.");
