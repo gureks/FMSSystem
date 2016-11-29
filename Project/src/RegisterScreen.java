@@ -24,7 +24,7 @@ public class RegisterScreen
 		title = new JLabel("Register Screen");
 		subtitle = new JLabel("Enter details");
 		register = new JButton("Register");
-		init_login();
+		init_register();
 		username = new JTextField("Username");
 		password = new JTextField("Password");
 		
@@ -35,13 +35,13 @@ public class RegisterScreen
 		subtitle.setFont(new Font("Arial", Font.BOLD, 20));
 		username.setBounds(300,250,300,50);
 		password.setBounds(300, 300, 300, 50);
-		login.setBounds(300, 350, 300, 50);
+		register.setBounds(300, 350, 300, 50);
 		
 		panel.add(title);
 		panel.add(subtitle);
 		panel.add(username);
 		panel.add(password);
-		panel.add(login);
+		panel.add(register);
 		
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,10 +49,10 @@ public class RegisterScreen
 		frame.setVisible(true);
 	}
 	
-	public void init_login()
+	public void init_register()
 	{
-		login.setPreferredSize(new Dimension(300, 50));
-		login.addActionListener(new ActionListener() 
+		register.setPreferredSize(new Dimension(300, 50));
+		register.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
