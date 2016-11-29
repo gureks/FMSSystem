@@ -147,7 +147,7 @@ public class SupervisorScreen
 		        if(!temp.getType().equals("Supervisor") && temp.getDepartment().equals(Main.LoggedIn.getDepartment())){  
 		        	staffText.setText(staffText.getText() + "<br>Name :" + temp.getName() + "&emsp;Username :" + temp.getUsername() + "&emsp;Department :" + temp.getDepartment() + "&emsp;Type :" + temp.getType());
 		        }
-			}
+        }
 		}
 		catch(FileNotFoundException e) {
 			e.printStackTrace();

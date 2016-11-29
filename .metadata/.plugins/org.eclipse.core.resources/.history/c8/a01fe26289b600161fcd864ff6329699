@@ -109,12 +109,8 @@ public class Main
 			AdminScreen adminscreen = new AdminScreen();
 		}
 		else if(LoggedIn.getType().equals("Supervisor"))
-		{
 			SupervisorScreen superscreen = new SupervisorScreen();
-		}
 		else
-		{
 			System.out.println("Welcome, staff of " + LoggedIn.getDepartment());
-		}
 	}
 }

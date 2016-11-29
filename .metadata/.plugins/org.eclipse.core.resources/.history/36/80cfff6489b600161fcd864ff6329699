@@ -113,8 +113,6 @@ public class Main
 			SupervisorScreen superscreen = new SupervisorScreen();
 		}
 		else
-		{
 			System.out.println("Welcome, staff of " + LoggedIn.getDepartment());
-		}
 	}
 }

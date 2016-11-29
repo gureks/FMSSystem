@@ -145,9 +145,9 @@ public class SupervisorScreen
 		        String[] values = line.split(",");
 		        User temp = new User(Integer.valueOf(values[0]),values[1],values[2],values[3],values[4],values[5],values[6]);
 		        if(!temp.getType().equals("Supervisor") && temp.getDepartment().equals(Main.LoggedIn.getDepartment())){  
-		        	staffText.setText(staffText.getText() + "<br>Name :" + temp.getName() + "&emsp;Username :" + temp.getUsername() + "&emsp;Department :" + temp.getDepartment() + "&emsp;Type :" + temp.getType());
+               staffText.setText(staffText.getText() + "<br>Name :" + temp.getName() + "&emsp;Username :" + temp.getUsername() + "&emsp;Department :" + temp.getDepartment() + "&emsp;Type :" + temp.getType());
 		        }
-			}
+        }
 		}
 		catch(FileNotFoundException e) {
 			e.printStackTrace();
