@@ -28,7 +28,7 @@ public class Main
 	{
 		System.out.println("Logging in " + luname + " with " + lpass);
 		System.out.println(Math.abs(luname.hashCode()));
-		int flag=0;
+		
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader("users.csv"));
@@ -43,18 +43,15 @@ public class Main
 		        	if(temp.getPassword().equals(lpass))
 		        	{
 		        		LoggedIn=temp;
-		        		flag=1;
+		        		System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
+		        		loginRedirect();
 		        		break;
 		        	}
+		        	else
+		        	{
+		        		System.out.println("Incorrect password");	
+		        	}
 		        }
-		        else
-		        	flag=0;
-			}
-			if(flag==0)
-				initlogin();
-			else {
-				System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
-        		loginRedirect();
 			}
 		}
 		catch(FileNotFoundException e) {

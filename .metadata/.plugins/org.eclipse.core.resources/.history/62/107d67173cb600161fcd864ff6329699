@@ -1,0 +1,74 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.*;
+import javax.swing.*;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *
+ */
+public class AdminScreen
+{
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel title;
+	private JButton logout, home, staff, reports, logistics, requests;
+	
+	AdminScreen()
+	{
+		frame = new JFrame("Admin Panel");
+		panel = new JPanel();
+		title = new JLabel("Welcome Admin, " + Main.LoggedIn.getName());
+		logout = new JButton("Logout");
+		home = new JButton("Home");
+		staff = new JButton("Staff");
+		reports = new JButton("Reports");
+		logistics = new JButton("Logistics");
+		requests = new JButton("Requests");
+		init_logout();
+		
+		panel.setLayout(null);
+		title.setBounds(25, 25, 550, 50);
+		title.setFont(new Font("Arial", Font.BOLD, 20));
+		
+		home.setBounds(0, 75, 150, 50);
+		staff.setBounds(150, 75, 150, 50);
+		reports.setBounds(300, 75, 150, 50);
+		logistics.setBounds(450, 75, 150, 50);
+		requests.setBounds(600, 75, 150, 50);
+		logout.setBounds(750, 25, 200, 50);
+		
+		panel.add(title);
+		panel.add(home);
+		panel.add(staff);
+		panel.add(reports);
+		panel.add(logistics);
+		panel.add(requests);
+		panel.add(logout);
+		
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(900, 700);
+		frame.setVisible(true);
+	}
+	
+	public void init_logout()
+	{
+		logout.setPreferredSize(new Dimension(300, 50));
+		logout.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				panel.setVisible(false);
+				frame.getContentPane().remove(panel);
+				frame.revalidate();
+				frame.setVisible(false);
+				Main.LoggedIn = null;
+				Main.main(null);
+			}
+		});
+	}	
+
+}

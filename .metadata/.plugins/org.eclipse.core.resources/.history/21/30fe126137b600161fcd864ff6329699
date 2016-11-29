@@ -44,17 +44,15 @@ public class Main
 		        	{
 		        		LoggedIn=temp;
 		        		flag=1;
+		        		System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
+		        		loginRedirect();
 		        		break;
 		        	}
+		        	else
+		        	{
+		        		System.out.println("Incorrect password");	
+		        	}
 		        }
-		        else
-		        	flag=0;
-			}
-			if(flag==0)
-				initlogin();
-			else {
-				System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
-        		loginRedirect();
 			}
 		}
 		catch(FileNotFoundException e) {

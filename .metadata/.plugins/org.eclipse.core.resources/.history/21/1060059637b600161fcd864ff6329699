@@ -52,7 +52,7 @@ public class Main
 			}
 			if(flag==0)
 				initlogin();
-			else {
+			else{
 				System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
         		loginRedirect();
 			}
