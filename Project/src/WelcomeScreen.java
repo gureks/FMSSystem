@@ -11,10 +11,10 @@ import javax.swing.*;
  */
 public class WelcomeScreen
 {
-	JFrame frame;
-	JPanel panel;
-	JLabel title, author;
-	JButton login, register;
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel title, author;
+	private JButton login, register;
 	
 	WelcomeScreen()
 	{

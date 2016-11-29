@@ -1,0 +1,92 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.*;
+import javax.swing.*;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *
+ */
+public class RegisterScreen
+{
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel title, subtitle, ltype, lname, luname, lpass;
+	private JButton register;
+	private JComboBox type;
+	private JTextField username, name;
+	private JPasswordField password;
+	
+	RegisterScreen()
+	{ 
+		frame = new JFrame("Register");
+		panel = new JPanel();
+		title = new JLabel("Register");
+		subtitle = new JLabel("Enter details");
+		register = new JButton("Register");
+		init_register();
+		String[] typeStrings = { "Staff" , "Supervisor" };
+		
+		ltype = new JLabel("Type");
+		type = new JComboBox(typeStrings);
+		lname = new JLabel("Name");
+		name = new JTextField("");
+		luname = new JLabel("Username");
+		username = new JTextField("");
+		lpass = new JLabel("Password");
+		password = new JPasswordField("");
+		
+		panel.setLayout(null);
+		title.setBounds(40, 50, 200, 50);
+		title.setFont(new Font("Arial", Font.BOLD, 30));
+		subtitle.setBounds(380, 150, 140, 50);
+		subtitle.setFont(new Font("Arial", Font.BOLD, 20));
+		ltype.setBounds(300, 200, 140, 50);
+		ltype.setFont(new Font("Arial", Font.BOLD, 20));
+		type.setBounds(300,250,300,50);
+		lname.setBounds(300, 300, 140, 50);
+		lname.setFont(new Font("Arial", Font.BOLD, 20));
+		name.setBounds(300, 350, 300, 50);
+		luname.setBounds(300, 400, 140, 50);
+		luname.setFont(new Font("Arial", Font.BOLD, 20));
+		username.setBounds(300, 450, 300, 50);
+		lpass.setBounds(300, 500, 140, 50);
+		lpass.setFont(new Font("Arial", Font.BOLD, 20));
+		password.setBounds(300, 550, 300, 50);
+
+		register.setBounds(300, 425, 300, 50);
+		
+		panel.add(title);
+		panel.add(subtitle);
+		panel.add(ltype);
+		panel.add(type);
+		panel.add(lname);
+		panel.add(name);
+		panel.add(luname);
+		panel.add(username);
+		panel.add(lpass);
+		panel.add(password);	
+		
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(900, 700);
+		frame.setVisible(true);
+	}
+	
+	public void init_register()
+	{
+		register.setPreferredSize(new Dimension(300, 50));
+		register.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				panel.setVisible(false);
+				frame.getContentPane().remove(panel);
+				frame.revalidate();
+				frame.setVisible(false);
+			}
+		});
+	}	
+}

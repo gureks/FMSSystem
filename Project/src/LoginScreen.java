@@ -11,11 +11,12 @@ import javax.swing.*;
  */
 public class LoginScreen
 {
-	JFrame frame;
-	JPanel panel;
-	JLabel title, subtitle, uname, pass;
-	JButton login;
-	JTextField username, password;
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel title, subtitle, uname, pass;
+	private JButton login;
+	private JTextField username;
+	private JPasswordField password;
 	
 	LoginScreen()
 	{ 
@@ -28,7 +29,7 @@ public class LoginScreen
 		login = new JButton("Login");
 		init_login();
 		username = new JTextField("");
-		password = new JTextField("");
+		password = new JPasswordField("");
 		
 		panel.setLayout(null);
 		title.setBounds(350, 100, 200, 50);
@@ -67,10 +68,13 @@ public class LoginScreen
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				Main.luname=username.getText();
+				Main.lpass=password.getText();
 				panel.setVisible(false);
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
 				frame.setVisible(false);
+				Main.login();
 			}
 		});
 	}	
