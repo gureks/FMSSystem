@@ -37,14 +37,13 @@ public class Main
 				//System.out.println(line);
 		        String[] values = line.split(",");
 		        User temp = new User(Integer.valueOf(values[0]),values[1],values[2],values[3],values[4],values[5],values[6]);
-		        //System.out.println(temp);
+		        System.out.println(temp);
 		        if(temp.getUsername().equals(luname))
 		        {
 		        	if(temp.getPassword().equals(lpass))
 		        	{
+		        		System.out.println("Welcome " + temp.getName() + " - " + temp.getType());
 		        		LoggedIn=temp;
-		        		System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
-		        		loginRedirect();
 		        		break;
 		        	}
 		        	else
@@ -85,7 +84,7 @@ public class Main
 		System.out.println(newUser.toString());
 		try 
 		{
-			PrintWriter pw = new PrintWriter(new FileOutputStream(new File("newusers.csv"), true));
+			PrintWriter pw = new PrintWriter(new FileOutputStream(new File("users.csv"), true));
 			pw.println(newUser.toString());			
 			pw.close();
 		}
@@ -96,22 +95,6 @@ public class Main
 		catch (IOException e)
 		{
 			e.printStackTrace();
-		}
-	}
-	
-	public static void loginRedirect()
-	{
-		if(LoggedIn.getType().equals("Admin"))
-		{
-			AdminScreen adminscreen = new AdminScreen();
-		}
-		else if(LoggedIn.getType().equals("Supervisor"))
-		{
-			System.out.println("Welcome, supervisor of " + LoggedIn.getDepartment());
-		}
-		else
-		{
-			System.out.println("Welcome, staff of " + LoggedIn.getDepartment());
 		}
 	}
 }

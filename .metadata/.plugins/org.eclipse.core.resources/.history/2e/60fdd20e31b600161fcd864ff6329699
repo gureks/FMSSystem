@@ -49,9 +49,4 @@ public class User
 	{
 		return name;
 	}
-	
-	public String getDepartment()
-	{
-		return department;
-	}
 }

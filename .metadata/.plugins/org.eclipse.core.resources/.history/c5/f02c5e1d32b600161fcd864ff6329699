@@ -103,7 +103,7 @@ public class Main
 	{
 		if(LoggedIn.getType().equals("Admin"))
 		{
-			AdminScreen adminscreen = new AdminScreen();
+			System.out.println("Welcome, admin");
 		}
 		else if(LoggedIn.getType().equals("Supervisor"))
 		{

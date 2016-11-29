@@ -52,6 +52,6 @@ public class User
 	
 	public String getDepartment()
 	{
-		return department;
+		return dept;
 	}
 }
