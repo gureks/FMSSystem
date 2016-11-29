@@ -114,7 +114,7 @@ public class Main
 		}
 		else
 		{
-			System.out.println("Welcome, staff of " + LoggedIn.getDepartment());
+			StaffScreen staffscreen = new StaffScreen();
 		}
 	}
 }
