@@ -24,7 +24,6 @@ public class Main
 	public static void login()
 	{
 		System.out.println("Logging in " + luname + " with " + lpass);
-		System.out.println(Math.abs(luname.hashCode()));
 	}
 	
 	public static void registerUser(String type, String name, String username, String password, String department, String DOB)

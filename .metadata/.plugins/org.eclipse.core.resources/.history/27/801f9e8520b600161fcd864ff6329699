@@ -65,8 +65,9 @@ public class RegisterScreen
 				frame.revalidate();
 				Main.registerUser((String)type.getSelectedItem(), name.getText(), username.getText(), password.getText(), (String)dept.getSelectedItem(), dob.getText());
 				rpanel = new JPanel();
-				JLabel rtitle = new JLabel("You have been regsistered with UID " + Math.abs(username.hashCode()));
+				JLabel rtitle = new JLabel("You have been regsistered.");
 				JLabel rsub	= new JLabel("You'll be registered once accepted by the Admin.");
+				JLabel uid = new JLabel("");
 				rtitle.setBounds(150, 250, 500, 50);
 				rtitle.setFont(new Font("Arial", Font.BOLD, 20));
 				rsub.setBounds(150, 350, 500, 50);
