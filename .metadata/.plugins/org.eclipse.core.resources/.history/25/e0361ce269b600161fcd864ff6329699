@@ -63,7 +63,7 @@ public class RegisterScreen
 				panel.setVisible(false);
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
-				if(name.getText().equals("") || username.getText().equals("") || password.getText().equals("") || dob.getText().equals(""))
+				if(name.getText().equals("") || username.getText().equals("") || password.getText() || dob.getText().equals(""))
 					Main.initregister();
 				else {
 				Integer uid = new Integer(Math.abs(username.hashCode()));

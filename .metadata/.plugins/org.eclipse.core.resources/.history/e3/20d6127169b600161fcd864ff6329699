@@ -74,7 +74,7 @@ public class LoginScreen
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
 				frame.setVisible(false);
-				if(Main.luname.equals("") || Main.lpass.equals("")) {
+				if(luname.equals("") || lpass.equals("")) {
 					Main.initlogin();
 				}
 				else {

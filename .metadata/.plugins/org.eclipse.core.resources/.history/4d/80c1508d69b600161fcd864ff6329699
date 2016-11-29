@@ -63,9 +63,6 @@ public class RegisterScreen
 				panel.setVisible(false);
 				frame.getContentPane().remove(panel);
 				frame.revalidate();
-				if(name.getText().equals("") || username.getText().equals("") || password.getText().equals("") || dob.getText().equals(""))
-					Main.initregister();
-				else {
 				Integer uid = new Integer(Math.abs(username.hashCode()));
 				Main.registerUser(uid, (String)type.getSelectedItem(), name.getText(), username.getText(), password.getText(), (String)dept.getSelectedItem(), dob.getText());
 				rpanel = new JPanel();
@@ -94,7 +91,6 @@ public class RegisterScreen
 				rpanel.add(back);
 				frame.getContentPane().add(BorderLayout.CENTER, rpanel);
 				frame.revalidate();
-				}
 			}
 		});
 	}	
