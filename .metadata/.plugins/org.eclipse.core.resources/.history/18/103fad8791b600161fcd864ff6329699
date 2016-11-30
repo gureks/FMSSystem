@@ -14,7 +14,6 @@ public class Main
 	 * This is a public variable which can be accessed anywhere that stores the logged in user and its information. 
 	 * This helps us achieve the Singleton design pattern.
 	 * This also acts as the Model for the MVC pattern.
-	 * The Main class is the Factory of the factory pattern.
 	 */
 	public static void main(String[] args) 
 	{
@@ -29,31 +28,17 @@ public class Main
 	{
 		LoginScreen login = new LoginScreen();
 		/**
-		 * Instantiate Login Screen Function.
-		 * The login screen asks the user to enter username and password.
-		 * If empty string is given, the login screen initializes.
+		 * Initialize Login Function
 		 */
 	}
 
 	public static void initregister()
 	{
 		RegisterScreen register = new RegisterScreen();
-		/**
-		 * Instantiate Register Screen Function.
-		 * The register screen asks the user to enter all necessary details.
-		 * After submission, a Unique User ID is generated and the request is sent to respective Supervisors and Admin.
-		 * If empty string is given, the register screen initializes again.
-		 */
 	}
 	
 	public static void login()
 	{
-		/**
-		 * Login Function.
-		 * The data from login screen is processed here.
-		 * If the username exists and the password is correctly entered, the function call goes to Login Redirect Function. 
-		 * If the username doesn't exist or password is incorrect, the login screen initializes again.
-		 */
 		System.out.println("Logging in " + luname + " with " + lpass);
 		System.out.println(Math.abs(luname.hashCode()));
 		int flag=0;
@@ -62,8 +47,10 @@ public class Main
 			br = new BufferedReader(new FileReader("users.csv"));
 			String line = null;
 			while ((line = br.readLine()) != null) {
+				//System.out.println(line);
 		        String[] values = line.split(",");
 		        User temp = new User(Integer.valueOf(values[0]),values[1],values[2],values[3],values[4],values[5],values[6]);
+		        //System.out.println(temp);
 		        if(temp.getUsername().equals(luname))
 		        {
 		        	if(temp.getPassword().equals(lpass))
@@ -79,6 +66,7 @@ public class Main
 			if(flag==0)
 				initlogin();
 			else {
+				System.out.println("Welcome " + LoggedIn.getName() + " - " + LoggedIn.getType());
         		loginRedirect();
 			}
 		}
@@ -102,10 +90,6 @@ public class Main
 	
 	public static void registerUser(Integer uid, String type, String name, String username, String password, String department, String DOB)
 	{
-		/**
-		 * Register User Function.
-		 * The data from register screen is processed and saved to the file here.
-		 */
 		System.out.println(uid);
 		System.out.println(type);
 		System.out.println(name);
@@ -133,10 +117,6 @@ public class Main
 	
 	public static void loginRedirect()
 	{
-		/**
-		 * Login Redirect function.
-		 * This function works by redirecting the user to the next View depending on their type and access rights.
-		 */
 		if(LoggedIn.getType().equals("Admin"))
 		{
 			AdminScreen adminscreen = new AdminScreen();

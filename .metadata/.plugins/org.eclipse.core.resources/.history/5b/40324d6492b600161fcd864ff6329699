@@ -133,10 +133,6 @@ public class Main
 	
 	public static void loginRedirect()
 	{
-		/**
-		 * Login Redirect function.
-		 * This function works by redirecting the user to the next View depending on their type and access rights.
-		 */
 		if(LoggedIn.getType().equals("Admin"))
 		{
 			AdminScreen adminscreen = new AdminScreen();

@@ -104,7 +104,9 @@ public class Main
 	{
 		/**
 		 * Register User Function.
-		 * The data from register screen is processed and saved to the file here.
+		 * The register screen asks the user to enter all necessary details.
+		 * After submission, a Unique User ID is generated and the request is sent to respective Supervisors and Admin.
+		 * If empty string is given, the register screen initializes again.
 		 */
 		System.out.println(uid);
 		System.out.println(type);
@@ -133,10 +135,6 @@ public class Main
 	
 	public static void loginRedirect()
 	{
-		/**
-		 * Login Redirect function.
-		 * This function works by redirecting the user to the next View depending on their type and access rights.
-		 */
 		if(LoggedIn.getType().equals("Admin"))
 		{
 			AdminScreen adminscreen = new AdminScreen();

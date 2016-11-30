@@ -31,7 +31,7 @@ public class Main
 		/**
 		 * Instantiate Login Screen Function.
 		 * The login screen asks the user to enter username and password.
-		 * If empty string is given, the login screen initializes.
+		 * If empty string is given, the login screen initializes again.
 		 */
 	}
 
@@ -102,10 +102,6 @@ public class Main
 	
 	public static void registerUser(Integer uid, String type, String name, String username, String password, String department, String DOB)
 	{
-		/**
-		 * Register User Function.
-		 * The data from register screen is processed and saved to the file here.
-		 */
 		System.out.println(uid);
 		System.out.println(type);
 		System.out.println(name);
@@ -133,10 +129,6 @@ public class Main
 	
 	public static void loginRedirect()
 	{
-		/**
-		 * Login Redirect function.
-		 * This function works by redirecting the user to the next View depending on their type and access rights.
-		 */
 		if(LoggedIn.getType().equals("Admin"))
 		{
 			AdminScreen adminscreen = new AdminScreen();
